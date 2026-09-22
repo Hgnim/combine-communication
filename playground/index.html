@@ -8,7 +8,26 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <div>
+            <label>是否为发起者</label>
+            <button onclick="init_target(true)">是</button>
+            <button onclick="init_target(false)">否</button>
+        </div>
+        <div>
+            <label>信令</label>
+            <input type="text" id="sigIpt"/>
+            <button onclick="sig_click()">连接</button>
+        </div>
+        <div>
+            <label>消息</label>
+            <input type="text" id="msgIpt"/>
+            <button onclick="msg_click()">发送</button>
+        </div>
+    </div>
+    <script>
+        window.global = window;
+    </script>
     <script type="module" src="./main.ts"></script>
 </body>
 </html>

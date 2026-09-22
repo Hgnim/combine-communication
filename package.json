@@ -6,11 +6,9 @@
   "files": [
     "dist"
   ],
-
   "main": "./dist/combine-communication.umd.cjs",
   "module": "./dist/combine-communication.es.js",
   "types": "./dist/combine-communication.d.ts",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
@@ -29,9 +27,14 @@
   "homepage": "https://github.com/Hgnim/combine-communication#readme",
   "devDependencies": {
     "@types/node": "^26.6.2",
+    "@types/simple-peer": "^9.11.9",
     "@typescript/typescript6": "^6.0.2",
     "typescript": "^7.0.2",
     "vite": "^8.3.0",
-    "vite-plugin-dts": "^5.1.1"
+    "vite-plugin-dts": "^5.1.1",
+    "vite-plugin-node-polyfills": "^0.28.0"
+  },
+  "dependencies": {
+    "simple-peer": "^9.11.1"
   }
 }

@@ -3,11 +3,19 @@ import path from "path";
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import dts from "vite-plugin-dts";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 const projName:string = "combine-communication";
 
 export default defineConfig({
     plugins: [
+        nodePolyfills({
+            globals: {
+                Buffer: true,
+                global: true,
+                process: true,
+            },
+        }),
         dts({
             include: ["src"],
             outDirs: "./dist",

@@ -1,4 +1,20 @@
-import cbcm from '../src/index';
-document.querySelector("#app")!.innerHTML = `
-  <h1>${cbcm()}</h1>
-`;
+import { init as cbcmInit, signal, send } from "../src/index";
+
+function sig_click() {
+    signal(
+        JSON.parse(
+            (document.getElementById("sigIpt") as HTMLInputElement).value,
+        ),
+    );
+}
+function msg_click() {
+    send((document.getElementById("msgIpt") as HTMLInputElement).value);
+}
+function initTarget(isI: boolean) {
+    cbcmInit(isI);
+}
+
+window.global = window;
+(window as any).sig_click = sig_click;
+(window as any).msg_click = msg_click;
+(window as any).init_target = initTarget;
