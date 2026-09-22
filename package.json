@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
+  "files": [
+    "dist"
+  ],
 
   "main": "./dist/combine-communication.umd.cjs",
   "module": "./dist/combine-communication.es.js",
@@ -11,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite playground"
   },
   "repository": {
     "type": "git",
