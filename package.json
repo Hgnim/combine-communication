@@ -31,10 +31,9 @@
     "@typescript/typescript6": "^6.0.2",
     "typescript": "^7.0.2",
     "vite": "^8.3.0",
-    "vite-plugin-dts": "^5.1.1",
-    "vite-plugin-node-polyfills": "^0.28.0"
+    "vite-plugin-dts": "^5.1.1"
   },
   "dependencies": {
-    "simple-peer": "^9.11.1"
+    "simple-peer": "github:hgnim/simple-peer#d2eb6931e91b12d8610bc79358896b13a3666a87"
   }
 }

@@ -14,7 +14,6 @@ function initTarget(isI: boolean) {
     cbcmInit(isI);
 }
 
-window.global = window;
 (window as any).sig_click = sig_click;
 (window as any).msg_click = msg_click;
 (window as any).init_target = initTarget;

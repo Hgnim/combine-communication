@@ -12,7 +12,10 @@ export function init(isInitiator: boolean) {
         console.log(JSON.stringify(data))
     });
     peer.on('connect', (data:any) => {
-        console.log('msg: ',data);
+        console.log("connect: ", data);
+    });
+    peer.on("data", (data: any) => {
+        console.log("msg: ", data);
     });
 }
 
