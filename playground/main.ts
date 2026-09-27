@@ -1,27 +1,31 @@
-import { init as cbcmInit, signal, send, emitter } from "../src/index";
+import { CbCm } from "../src/index";
+
+let cbcm:CbCm;
 
 function sig_click() {
-    signal(
+    cbcm.signalConnect(
         JSON.parse(
             (document.getElementById("sigIpt") as HTMLInputElement).value,
         ),
-    ).then(sigData => {
+    ).then((sigData) => {
         console.log(sigData, JSON.stringify(sigData));
     });
 }
 function msg_click() {
-    send((document.getElementById("msgIpt") as HTMLInputElement).value);
+    cbcm.sendStr((document.getElementById("msgIpt") as HTMLInputElement).value);
 }
 function initTarget(isI: boolean) {
-    cbcmInit(isI).then(ret => {
-        console.log(ret);
-        console.log(JSON.stringify(ret));
+    cbcm = new CbCm(isI);
+    cbcm.getSignal().then(sig => {
+        console.log(sig);
+        console.log(JSON.stringify(sig));
     });
-    emitter.on('connect', () => {
-        console.log('connect now');
-    })
-    emitter.on('getData', (data) => {
-        console.log('msg:', data.msgData)
+
+    cbcm.emitter.on("connect", () => {
+        console.log("connect now");
+    });
+    cbcm.emitter.on("getData", (data) => {
+        console.log("msg:", data.msgData);
     });
 }
 
