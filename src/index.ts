@@ -3,7 +3,6 @@ import mitt from "mitt";
 import sleep from 'sleep';
 
 export type Events = {
-    signal: { sigData: speer.SignalData };
     connect: {};
     getData: { msgData: any };
 };
@@ -18,7 +17,6 @@ function peerSignal(data: speer.SignalData) {
     //console.log(data);
     //console.log(JSON.stringify(data));
     sigData = data;
-    emitter.emit("signal", { sigData: data });
 }
 function peerConnect() {
     //console.log("connect");
@@ -50,8 +48,14 @@ export function unload() {
     peer.off("data", peerData);
 }
 
-export function signal(data: speer.SignalData) {
+export async function signal(data: speer.SignalData): Promise<speer.SignalData|null> {
     peer.signal(data);
+
+    if (sigData == null) {
+        while (sigData == null)
+            await sleep(50);
+        return sigData;
+    } else return null;
 }
 
 export function send(msg: string) {

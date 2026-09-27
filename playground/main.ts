@@ -5,7 +5,9 @@ function sig_click() {
         JSON.parse(
             (document.getElementById("sigIpt") as HTMLInputElement).value,
         ),
-    );
+    ).then(sigData => {
+        console.log(sigData, JSON.stringify(sigData));
+    });
 }
 function msg_click() {
     send((document.getElementById("msgIpt") as HTMLInputElement).value);
@@ -14,9 +16,6 @@ function initTarget(isI: boolean) {
     cbcmInit(isI).then(ret => {
         console.log(ret);
         console.log(JSON.stringify(ret));
-    });
-    emitter.on("signal", (data) => {
-        console.log("signal: ", data.sigData,JSON.stringify(data.sigData));
     });
     emitter.on('connect', () => {
         console.log('connect now');
