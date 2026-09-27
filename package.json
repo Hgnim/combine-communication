@@ -34,6 +34,8 @@
     "vite-plugin-dts": "^5.1.1"
   },
   "dependencies": {
-    "simple-peer": "github:hgnim/simple-peer#d2eb6931e91b12d8610bc79358896b13a3666a87"
+    "mitt": "^3.0.1",
+    "simple-peer": "github:hgnim/simple-peer#d2eb6931e91b12d8610bc79358896b13a3666a87",
+    "sleep": "github:hgnim/sleep"
   }
 }
